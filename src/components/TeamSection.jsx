@@ -157,31 +157,33 @@ export function TeamDirectoryPage() {
 
 export default function TeamSection() {
   const sectionRef = useRef(null);
-  const isInView = useInView(sectionRef, { once: true, margin: '-80px' });
 
   return (
     <section ref={sectionRef} className="bg-dark-950 py-20 lg:py-28" id="team">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="text-center mb-16">
           <motion.p
-            initial={{ opacity: 0, y: 10 }}
-            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-60px' }}
             transition={{ duration: 0.5 }}
             className="text-sm font-semibold text-blue-500 tracking-wider uppercase mb-4"
           >
             The Team
           </motion.p>
           <motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            initial={{ opacity: 0, y: 25 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-60px' }}
             transition={{ duration: 0.6, delay: 0.1 }}
             className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white tracking-tight mb-4"
           >
             Meet the Curators
           </motion.h2>
           <motion.p
-            initial={{ opacity: 0, y: 15 }}
-            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-60px' }}
             transition={{ duration: 0.5, delay: 0.2 }}
             className="text-base text-white/40 max-w-lg mx-auto"
           >
@@ -193,9 +195,10 @@ export default function TeamSection() {
           {teamMembers.map((member, i) => (
             <motion.div
               key={member.name}
-              initial={{ opacity: 0, y: 25 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.5, delay: 0.1 + i * 0.08 }}
+              initial={{ opacity: 0, y: 35, scale: 0.95 }}
+              whileInView={{ opacity: 1, y: 0, scale: 1 }}
+              viewport={{ once: true, margin: '-50px' }}
+              transition={{ duration: 0.5, delay: i * 0.1 }}
               className="team-card min-h-[260px] rounded-2xl bg-dark-800/50 border border-white/5 p-6 lg:p-7 shadow-[0_18px_50px_rgba(0,0,0,0.18)]"
             >
               <div className="mx-auto mb-4 h-24 w-24 overflow-hidden rounded-full border border-white/8 bg-gradient-to-br from-white/10 to-white/5 sm:h-28 sm:w-28">
@@ -233,9 +236,10 @@ export default function TeamSection() {
             onClick={() => {
               window.location.hash = 'team-directory';
             }}
-            initial={{ opacity: 0, y: 25 }}
-            animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.5, delay: 0.1 + teamMembers.length * 0.08 }}
+            initial={{ opacity: 0, y: 35, scale: 0.95 }}
+            whileInView={{ opacity: 1, y: 0, scale: 1 }}
+            viewport={{ once: true, margin: '-50px' }}
+            transition={{ duration: 0.5, delay: teamMembers.length * 0.1 }}
             className="team-card min-h-[260px] rounded-2xl border border-dashed border-white/8 bg-dark-800/30 p-6 lg:p-7 text-center transition hover:border-white/15 hover:bg-white/6"
           >
             <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full border border-white/8 bg-white/5 text-white/40 transition group-hover:text-white/60">

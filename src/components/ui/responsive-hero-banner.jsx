@@ -1,4 +1,5 @@
 import { useState } from "react";
+import GlowHorizonFM from "./glow-horizon";
 
 const ResponsiveHeroBanner = ({
   logoUrl,
@@ -21,53 +22,52 @@ const ResponsiveHeroBanner = ({
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
-    <section className="w-full isolate min-h-screen overflow-hidden relative">
-      <img
-        src={backgroundImageUrl}
-        alt=""
-        className="w-full h-full object-cover absolute top-0 right-0 bottom-0 left-0"
-      />
-      <div className="absolute inset-0 bg-black/50" />
-      <div className="pointer-events-none absolute inset-0 ring-1 ring-black/30" />
+    <section className="w-full min-h-screen relative overflow-hidden bg-black">
+      {/* Glow Horizon Background */}
+      <div className="absolute inset-0 z-0 overflow-hidden">
+        <GlowHorizonFM variant="top" />
+      </div>
+      <div className="absolute inset-0 bg-black/40 z-0 pointer-events-none" />
 
-      {/* Built-in Nav */}
-      <header className="z-20 relative">
-        <div className="mx-6">
-          <div className="flex items-center justify-between pt-4">
-            {/* Logo */}
-            {logoUrl && (
-              <a href="#" className="inline-flex items-center justify-center rounded overflow-hidden">
-                <img src={logoUrl} alt="IEEE CTSoc Logo" className="h-10 w-auto object-contain" />
+      {/* Built-in Nav (Floating Capsule Navbar - Pure Black, Wider, Sticky Top-to-Bottom everywhere) */}
+      <header className="fixed top-0 left-0 right-0 z-[99999] px-3 sm:px-6 py-3.5 transition-all duration-300 pointer-events-auto">
+        <div className="w-[96%] max-w-[1440px] mx-auto rounded-full bg-black/90 border border-neutral-800 px-6 sm:px-8 py-3 backdrop-blur-2xl shadow-2xl flex items-center justify-between relative">
+          {/* Left: Logo */}
+          {logoUrl && (
+            <a href="#" className="inline-flex items-center justify-center rounded overflow-hidden z-10">
+              <img src={logoUrl} alt="IEEE CTSoc Logo" className="h-10 w-auto object-contain" />
+            </a>
+          )}
+
+          {/* Center: Desktop Nav Links */}
+          <nav className="hidden md:flex items-center gap-2 absolute left-1/2 -translate-x-1/2">
+            {navLinks.map((link, index) => (
+              <a
+                key={index}
+                href={link.href}
+                className={`px-4 py-1.5 text-sm transition-all duration-200 font-sans ${
+                  link.isActive
+                    ? "text-white font-semibold"
+                    : "text-neutral-400 hover:text-white"
+                }`}
+              >
+                {link.label}
               </a>
-            )}
+            ))}
+          </nav>
 
-
-            {/* Desktop nav pill */}
-            <nav className="hidden md:flex items-center gap-2">
-              <div className="flex items-center gap-1 rounded-full bg-white/5 px-1 py-1 ring-1 ring-white/10 backdrop-blur">
-                {navLinks.map((link, index) => (
-                  <a
-                    key={index}
-                    href={link.href}
-                    className={`px-3 py-2 text-sm font-medium hover:text-white font-sans transition-colors ${
-                      link.isActive ? "text-white/90" : "text-white/70"
-                    }`}
-                  >
-                    {link.label}
-                  </a>
-                ))}
-                <a
-                  href={ctaButtonHref}
-                  className="ml-1 inline-flex items-center gap-2 rounded-full bg-white px-3.5 py-2 text-sm font-semibold text-blue-600 hover:bg-white/90 hover:text-blue-700 font-sans transition-colors"
-                >
-                  {ctaButtonText}
-                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-4 w-4">
-                    <path d="M7 7h10v10" />
-                    <path d="M7 17 17 7" />
-                  </svg>
-                </a>
-              </div>
-            </nav>
+          {/* Right: CTA Button */}
+          <div className="flex items-center gap-3 z-10">
+            <a
+              href={ctaButtonHref}
+              className="hidden sm:inline-flex items-center gap-2 rounded-full bg-white px-5 py-2 text-sm font-semibold text-blue-600 hover:bg-white/90 hover:text-blue-700 font-sans transition-colors shadow-md"
+            >
+              {ctaButtonText}
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-4 w-4">
+                <path d="M7 7h10v10" />
+                <path d="M7 17 17 7" />
+              </svg>
+            </a>
 
             {/* Mobile toggle */}
             <button
@@ -84,15 +84,15 @@ const ResponsiveHeroBanner = ({
             </button>
           </div>
 
-          {/* Mobile menu */}
+          {/* Mobile menu dropdown */}
           {mobileMenuOpen && (
-            <div className="md:hidden mt-2 rounded-2xl bg-black/70 backdrop-blur ring-1 ring-white/10 p-4 space-y-1">
+            <div className="md:hidden absolute top-full left-0 right-0 mt-3 rounded-2xl bg-black/95 border border-neutral-800 backdrop-blur-2xl p-4 space-y-1 shadow-2xl z-50">
               {navLinks.map((link, index) => (
                 <a
                   key={index}
                   href={link.href}
                   onClick={() => setMobileMenuOpen(false)}
-                  className="block px-4 py-2 text-sm font-medium text-white/80 hover:text-white hover:bg-white/5 rounded-xl transition-colors"
+                  className="block px-4 py-2.5 text-sm font-medium text-white/80 hover:text-white hover:bg-white/10 rounded-xl transition-colors"
                 >
                   {link.label}
                 </a>
@@ -100,7 +100,7 @@ const ResponsiveHeroBanner = ({
               <a
                 href={ctaButtonHref}
                 onClick={() => setMobileMenuOpen(false)}
-                className="flex items-center justify-center mt-2 w-full px-4 py-2.5 text-sm font-semibold text-black bg-white rounded-full hover:bg-white/90 transition-colors"
+                className="flex items-center justify-center mt-2 w-full px-4 py-2.5 text-sm font-semibold text-blue-600 bg-white rounded-full hover:bg-white/90 transition-colors"
               >
                 {ctaButtonText}
               </a>
@@ -111,7 +111,7 @@ const ResponsiveHeroBanner = ({
 
       {/* Hero content */}
       <div className="z-10 relative">
-        <div className="sm:pt-28 md:pt-32 lg:pt-40 max-w-7xl mx-auto pt-28 px-6 pb-16">
+        <div className="sm:pt-36 md:pt-40 lg:pt-44 max-w-7xl mx-auto pt-32 px-6 pb-16">
           <div className="mx-auto max-w-3xl text-center">
 
             {/* Badge */}

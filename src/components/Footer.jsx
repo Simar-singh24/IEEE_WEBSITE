@@ -1,3 +1,4 @@
+import { motion } from 'framer-motion';
 import logoImage from '../assets/logo.jpeg';
 
 const footerLinks = {
@@ -27,7 +28,13 @@ export default function Footer() {
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,_rgba(255,255,255,0.04),transparent_24%),radial-gradient(circle_at_right,_rgba(15,118,110,0.08),transparent_30%)]" />
 
       <div className="relative mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8 xl:py-10">
-        <div className="rounded-[30px] border border-white/10 bg-[#0a0f14] p-5 shadow-[0_24px_80px_rgba(0,0,0,0.38)] sm:p-8 lg:p-10">
+        <motion.div
+          initial={{ opacity: 0, y: 40, scale: 0.98 }}
+          whileInView={{ opacity: 1, y: 0, scale: 1 }}
+          viewport={{ once: true, margin: '-60px' }}
+          transition={{ duration: 0.7 }}
+          className="rounded-[30px] border border-white/10 bg-[#0a0f14] p-5 shadow-[0_24px_80px_rgba(0,0,0,0.38)] sm:p-8 lg:p-10"
+        >
           <div className="grid gap-10 lg:grid-cols-[1fr_auto]">
             <div className="space-y-6 min-w-0">
               <div className="flex items-center gap-4">
@@ -60,8 +67,15 @@ export default function Footer() {
             </div>
 
             <div className="grid grid-cols-3 gap-8 lg:gap-14 justify-items-center">
-              {Object.entries(footerLinks).map(([title, links]) => (
-                <div key={title} className="lg:pt-3">
+              {Object.entries(footerLinks).map(([title, links], idx) => (
+                <motion.div
+                  key={title}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: 0.2 + idx * 0.1 }}
+                  className="lg:pt-3"
+                >
                   <h4 className="mb-4 text-xs font-semibold uppercase tracking-[0.22em] text-white/45">{title}</h4>
                   <ul className="space-y-3">
                     {links.map((link) => (
@@ -72,7 +86,7 @@ export default function Footer() {
                       </li>
                     ))}
                   </ul>
-                </div>
+                </motion.div>
               ))}
             </div>
           </div>
@@ -87,7 +101,7 @@ export default function Footer() {
               <a href="mailto:ctsoc@cuchd.in" className="transition hover:text-white/70">Contact</a>
             </div>
           </div>
-        </div>
+        </motion.div>
       </div>
     </footer>
   );

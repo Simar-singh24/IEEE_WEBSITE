@@ -95,10 +95,11 @@ function EventGridCard({ event, index }) {
   return (
     <motion.div
       layout
-      initial={{ opacity: 0, y: 20, scale: 0.96 }}
-      animate={{ opacity: 1, y: 0, scale: 1 }}
+      initial={{ opacity: 0, y: 30, scale: 0.96 }}
+      whileInView={{ opacity: 1, y: 0, scale: 1 }}
+      viewport={{ once: true, margin: '-40px' }}
       exit={{ opacity: 0, y: -10, scale: 0.96 }}
-      transition={{ duration: 0.4, delay: index * 0.08 }}
+      transition={{ duration: 0.5, delay: (index % 3) * 0.12 }}
       className="event-card group rounded-2xl bg-dark-900/90 border border-white/10 hover:border-blue-500/40 overflow-hidden flex flex-col justify-between transition-all duration-300 backdrop-blur-md"
     >
       {/* Image Banner */}

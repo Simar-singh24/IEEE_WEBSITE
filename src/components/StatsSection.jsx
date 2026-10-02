@@ -40,7 +40,7 @@ export default function StatsSection() {
   const isInView = useInView(sectionRef, { once: true, margin: '-100px' });
 
   return (
-    <section ref={sectionRef} className="relative z-20 bg-dark-950" id="stats">
+    <section ref={sectionRef} className="relative z-10 bg-dark-950" id="stats">
       <div className="max-w-7xl mx-auto px-6 lg:px-8 py-20 lg:py-28">
         {/* Header row */}
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-10 lg:gap-16 items-start">

@@ -64,8 +64,9 @@ export default function FlagshipEvent() {
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         {/* Section Label */}
         <motion.p
-          initial={{ opacity: 0, y: 10 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-60px' }}
           transition={{ duration: 0.5 }}
           className="text-sm font-semibold text-blue-500 tracking-wider uppercase mb-4"
         >
@@ -73,8 +74,9 @@ export default function FlagshipEvent() {
         </motion.p>
 
         <motion.h2
-          initial={{ opacity: 0, y: 20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-60px' }}
           transition={{ duration: 0.6, delay: 0.1 }}
           className="text-3xl sm:text-4xl lg:text-[4rem] font-bold text-white tracking-[-0.04em] mb-12"
         >
@@ -82,9 +84,15 @@ export default function FlagshipEvent() {
         </motion.h2>
 
         {/* Card Grid */}
-        <div ref={cardRef} className="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-6">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-6">
           {/* Left Card - Event Details */}
-          <div className="relative overflow-hidden rounded-2xl bg-dark-800 border border-white/6 p-8 lg:p-10">
+          <motion.div
+            initial={{ opacity: 0, y: 40, scale: 0.97 }}
+            whileInView={{ opacity: 1, y: 0, scale: 1 }}
+            viewport={{ once: true, margin: '-60px' }}
+            transition={{ duration: 0.7, delay: 0.2 }}
+            className="relative overflow-hidden rounded-2xl bg-dark-800 border border-white/6 p-8 lg:p-10"
+          >
             <div className="absolute -right-8 -top-8 h-36 w-36 rounded-full bg-blue-500/10 blur-3xl" />
             <div className="absolute bottom-0 left-0 h-28 w-28 rounded-full bg-violet-500/10 blur-3xl" />
 
@@ -100,13 +108,17 @@ export default function FlagshipEvent() {
               </div>
 
               <div className="mb-5 flex flex-wrap gap-2">
-                {['AI', 'Web', 'IoT', 'Build', 'Ship'].map((tag) => (
-                  <span
+                {['AI', 'Web', 'IoT', 'Build', 'Ship'].map((tag, tagIdx) => (
+                  <motion.span
                     key={tag}
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.3, delay: 0.3 + tagIdx * 0.05 }}
                     className="rounded-full border border-white/8 bg-white/4 px-2.5 py-1 text-[10px] font-medium uppercase tracking-[0.15em] text-white/60"
                   >
                     {tag}
-                  </span>
+                  </motion.span>
                 ))}
               </div>
 
@@ -173,10 +185,16 @@ export default function FlagshipEvent() {
                 </a>
               </div>
             </div>
-          </div>
+          </motion.div>
 
           {/* Right Card - Countdown */}
-          <div className="rounded-2xl countdown-gradient border border-white/6 p-8 lg:p-10 flex flex-col justify-between">
+          <motion.div
+            initial={{ opacity: 0, y: 40, scale: 0.97 }}
+            whileInView={{ opacity: 1, y: 0, scale: 1 }}
+            viewport={{ once: true, margin: '-60px' }}
+            transition={{ duration: 0.7, delay: 0.35 }}
+            className="rounded-2xl countdown-gradient border border-white/6 p-8 lg:p-10 flex flex-col justify-between"
+          >
             <div>
               <div className="inline-flex items-center px-3 py-1.5 mb-8 rounded-md bg-white/5 border border-white/8">
                 <span className="text-xs font-semibold text-white/60 tracking-wide">Starts in</span>
@@ -204,7 +222,7 @@ export default function FlagshipEvent() {
                 31 hours • Open to CU students and external participants.
               </p>
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>
