@@ -5,7 +5,6 @@ import logoImage from '../assets/logo.jpeg';
 const navLinks = [
   { label: "Events", href: "#events" },
   { label: "Team", href: "#team" },
-  { label: "About", href: "#about" },
 ];
 
 export default function Navbar() {

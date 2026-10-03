@@ -15,8 +15,11 @@
   --color-dark-600: #222222;
   --color-dark-500: #333333;
 
-  --color-accent-orange: #3b82f6;
-  --color-accent-orange-dark: #2563eb;
+  --brand-blue: #17639d;
+  --brand-blue-dark: #17639d;
+
+  --color-accent-orange: var(--brand-blue);
+  --color-accent-orange-dark: var(--brand-blue-dark);
 
   --animate-marquee: marquee 35s linear infinite;
   --animate-fade-up: fade-up 0.7s ease-out both;
@@ -108,6 +111,43 @@ body {
   background-color: var(--color-dark-950);
   color: #ffffff;
   overflow-x: hidden;
+}
+
+:root {
+  --brand-blue: #17639d;
+  --brand-blue-dark: #17639d;
+}
+
+[class*="text-blue-"] {
+  color: #17639d !important;
+}
+
+[class*="border-blue-"] {
+  border-color: #17639d !important;
+}
+
+[class*="bg-blue-"] {
+  background-color: #17639d !important;
+}
+
+[class*="from-blue-"],
+[class*="via-blue-"],
+[class*="to-blue-"] {
+  --tw-gradient-from: #17639d !important;
+  --tw-gradient-via: #17639d !important;
+  --tw-gradient-to: #17639d !important;
+}
+
+[class*="hover:text-blue-"]:hover {
+  color: #17639d !important;
+}
+
+[class*="hover:bg-blue-"]:hover {
+  background-color: #17639d !important;
+}
+
+[class*="focus:border-blue-"]:focus {
+  border-color: #17639d !important;
 }
 
 a {
@@ -260,5 +300,22 @@ a:not([class*="text-"]) {
 .gsap-reveal {
   opacity: 0;
   transform: translateY(40px);
+}
+
+/* Animated Wave Footer */
+@keyframes wave {
+  0% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(-20%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.animate-wave {
+  animation: wave 14s ease-in-out infinite;
 }
 

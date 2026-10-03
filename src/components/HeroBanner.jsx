@@ -11,14 +11,13 @@ const HeroBanner = () => {
         { label: 'Home', href: '#', isActive: true },
         { label: 'Events', href: '#events' },
         { label: 'Team', href: '#team' },
-        { label: 'About', href: '#about' },
       ]}
       ctaButtonText="Join CTSoc"
       ctaButtonHref="#events"
-      badgeLabel="CTSoc"
       badgeText="IEEE Computer Society — Chandigarh University"
-      title="Code. Create."
-      titleLine2="Lead the Change."
+      title="Code. Create. Connect.
+"
+      titleLine2="CTSoc IEEE SOCIETY"
       description="CTSoc is the IEEE Computer Society Student Chapter at Chandigarh University — building a vibrant community for innovation, research, execution, and leadership in technology."
       primaryButtonText="Explore Events"
       primaryButtonHref="#events"

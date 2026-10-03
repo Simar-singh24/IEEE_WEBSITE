@@ -7,7 +7,6 @@ const ResponsiveHeroBanner = ({
   navLinks = [],
   ctaButtonText = "Join Now",
   ctaButtonHref = "#",
-  badgeLabel = "New",
   badgeText = "",
   title = "",
   titleLine2 = "",
@@ -109,75 +108,62 @@ const ResponsiveHeroBanner = ({
         </div>
       </header>
 
+      {/* Ambient background glow accents */}
+      <div className="pointer-events-none absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[900px] h-[500px] bg-gradient-to-tr from-blue-600/20 via-purple-600/15 to-transparent blur-[140px] rounded-full z-0" />
+
       {/* Hero content */}
       <div className="z-10 relative">
-        <div className="sm:pt-36 md:pt-40 lg:pt-44 max-w-7xl mx-auto pt-32 px-6 pb-16">
-          <div className="mx-auto max-w-3xl text-center">
+        <div className="sm:pt-36 md:pt-40 lg:pt-44 max-w-7xl mx-auto pt-32 px-4 sm:px-6 pb-20">
+          <div className="mx-auto max-w-4xl text-center">
 
             {/* Badge */}
-            <div className="mb-6 inline-flex items-center gap-3 rounded-full bg-white/10 px-2.5 py-2 ring-1 ring-white/15 backdrop-blur animate-fade-slide-in-1">
-              <span className="inline-flex items-center text-xs font-medium text-neutral-900 bg-white/90 rounded-full py-0.5 px-2 font-sans">
-                {badgeLabel}
-              </span>
-              <span className="text-sm font-medium text-white/90 font-sans">
-                {badgeText}
-              </span>
-            </div>
+            {badgeText && (
+              <div className="mb-8 inline-flex items-center justify-center rounded-full bg-white/10 px-4 py-2.5 border border-white/15 backdrop-blur-xl shadow-xl animate-fade-slide-in-1 hover:border-blue-400/40 transition-all">
+                <span className="text-sm sm:text-base font-semibold text-white/95 font-sans tracking-wide">
+                  {badgeText}
+                </span>
+              </div>
+            )}
 
             {/* Heading */}
-            <h1 className="sm:text-5xl md:text-6xl lg:text-7xl leading-tight text-4xl text-white tracking-tight font-serif font-normal animate-fade-slide-in-2">
+            <h1 className="sm:text-7xl md:text-8xl lg:text-[6.2rem] leading-[1.04] text-5xl text-white tracking-tight font-serif font-normal drop-shadow-2xl animate-fade-slide-in-2">
               {title}
               <br className="hidden sm:block" />
-              <span className="italic">{titleLine2}</span>
+              <span className="italic bg-gradient-to-r from-blue-300 via-white to-blue-400 bg-clip-text text-transparent">
+                {titleLine2}
+              </span>
             </h1>
 
             {/* Description */}
-            <p className="sm:text-lg animate-fade-slide-in-3 text-base text-white/80 max-w-2xl mt-6 mx-auto leading-relaxed">
+            <p className="sm:text-xl md:text-2xl animate-fade-slide-in-3 text-base text-white/85 max-w-3xl mt-8 mx-auto leading-relaxed font-sans font-light">
               {description}
             </p>
 
             {/* CTA buttons */}
-            <div className="flex flex-col sm:flex-row sm:gap-4 mt-10 gap-3 items-center justify-center animate-fade-slide-in-4">
+            <div className="flex flex-col sm:flex-row sm:gap-5 mt-10 gap-4 items-center justify-center animate-fade-slide-in-4">
               <a
                 href={primaryButtonHref}
-                className="inline-flex items-center gap-2 hover:bg-white/15 text-sm font-medium text-white bg-white/10 ring-white/15 ring-1 rounded-full py-3 px-5 font-sans transition-colors backdrop-blur"
+                className="inline-flex items-center gap-3 text-base font-semibold text-white bg-white/15 hover:bg-white hover:text-blue-700 border border-white/20 rounded-full py-4 px-8 font-sans transition-all duration-300 backdrop-blur-xl shadow-xl hover:shadow-[0_0_35px_rgba(59,130,246,0.6)] hover:scale-105"
               >
                 {primaryButtonText}
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-4 w-4">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="h-5 w-5">
                   <path d="M5 12h14" />
                   <path d="m12 5 7 7-7 7" />
                 </svg>
               </a>
               <a
                 href={secondaryButtonHref}
-                className="inline-flex items-center gap-2 rounded-full bg-transparent px-5 py-3 text-sm font-medium text-blue-400 hover:text-blue-300 font-sans transition-colors"
+                className="inline-flex items-center gap-3 rounded-full bg-[#17639d] border border-[#17639d] px-8 py-4 text-base font-semibold text-white hover:bg-[#0f4d86] hover:border-[#0f4d86] font-sans transition-all duration-300 shadow-xl hover:shadow-[0_0_35px_rgba(23,99,157,0.45)] hover:scale-105"
               >
                 {secondaryButtonText}
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4">
-                  <path d="M5 5a2 2 0 0 1 3.008-1.728l11.997 6.998a2 2 0 0 1 .003 3.458l-12 7A2 2 0 0 1 5 19z" />
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="h-5 w-5">
+                  <path d="M5 12h14" />
+                  <path d="m12 5 7 7-7 7" />
                 </svg>
               </a>
             </div>
           </div>
 
-          {/* Partners strip */}
-          {partners.length > 0 && (
-            <div className="mx-auto mt-20 max-w-5xl">
-              <p className="animate-fade-slide-in-1 text-sm text-white/70 text-center">
-                {partnersTitle}
-              </p>
-              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 animate-fade-slide-in-2 text-white/70 mt-6 items-center justify-items-center gap-4">
-                {partners.map((partner, index) => (
-                  <a
-                    key={index}
-                    href={partner.href}
-                    className="inline-flex items-center justify-center bg-center w-[120px] h-[36px] bg-cover rounded-full opacity-80 hover:opacity-100 transition-opacity"
-                    style={{ backgroundImage: `url(${partner.logoUrl})` }}
-                  />
-                ))}
-              </div>
-            </div>
-          )}
         </div>
       </div>
     </section>

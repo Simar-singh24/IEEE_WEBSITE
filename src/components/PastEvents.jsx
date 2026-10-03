@@ -8,7 +8,7 @@ const pastEvents = [
     date: '18–19 October 2024',
     category: 'Hackathon',
     description: 'A flagship innovation sprint bringing together builders, coders, and problem-solvers across domains.',
-    image: 'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=1200&auto=format&fit=crop&q=80',
+    image: 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1200&q=80',
   },
   {
     title: 'CUSoC',
@@ -16,7 +16,7 @@ const pastEvents = [
     date: 'September 2024',
     category: 'Community',
     description: 'A campus-wide tech culture initiative connecting students to collaborative learning and peer-driven growth.',
-    image: 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=1200&auto=format&fit=crop&q=80',
+    image: 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1200&q=80',
   },
   {
     title: 'Code Relay 2.0',
@@ -24,7 +24,7 @@ const pastEvents = [
     date: 'April 2024',
     category: 'Competition',
     description: 'A rapid-fire coding challenge that tested speed, logic, and team coordination under pressure.',
-    image: 'https://images.unsplash.com/photo-1515879218367-8466d910aaa4?w=1200&auto=format&fit=crop&q=80',
+    image: 'https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1200&q=80',
   },
   {
     title: 'CodeMate',
@@ -32,7 +32,7 @@ const pastEvents = [
     date: 'November 2023',
     category: 'Workshop',
     description: 'A mentoring-driven learning series helping students improve practical development and teamwork skills.',
-    image: 'https://images.unsplash.com/photo-1522204557185-5b1324f0a4d9?w=1200&auto=format&fit=crop&q=80',
+    image: 'https://images.unsplash.com/photo-1522204557185-5b1324f0a4d9?auto=format&fit=crop&w=1200&q=80',
   },
   {
     title: 'ICPC 2025 Regional',
@@ -40,7 +40,7 @@ const pastEvents = [
     date: 'February 2025',
     category: 'Competition',
     description: 'Regional problem-solving excellence showcasing analytical rigor and programming depth under contest conditions.',
-    image: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&auto=format&fit=crop&q=80',
+    image: 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1200&q=80',
   },
   {
     title: 'CTRL Series',
@@ -48,7 +48,7 @@ const pastEvents = [
     date: 'January 2025',
     category: 'Seminar',
     description: 'A thought-provoking series of technical talks bringing fresh perspectives from industry and academia.',
-    image: 'https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=1200&auto=format&fit=crop&q=80',
+    image: 'https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=1200&q=80',
   },
   {
     title: 'AI & ML Bootcamp',
@@ -56,7 +56,7 @@ const pastEvents = [
     date: 'July 2024',
     category: 'Workshop',
     description: 'Hands-on model building and learning sessions introducing students to real-world ML workflows.',
-    image: 'https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&auto=format&fit=crop&q=80',
+    image: 'https://images.unsplash.com/photo-1677645551157-8e58ff93768d?auto=format&fit=crop&w=1200&q=80',
   },
   {
     title: 'CyberShield CTF',
@@ -64,7 +64,7 @@ const pastEvents = [
     date: 'December 2024',
     category: 'Competition',
     description: 'A cybersecurity challenge designed to push ethical hacking, reverse engineering, and defense skills.',
-    image: 'https://images.unsplash.com/photo-1563986768609-322da13575f3?w=1200&auto=format&fit=crop&q=80',
+    image: 'https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1200&q=80',
   },
 ];
 

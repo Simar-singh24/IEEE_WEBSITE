@@ -1,6 +1,7 @@
 import { useState, useRef } from 'react';
 import { motion, useInView, AnimatePresence } from 'framer-motion';
 import { WorksWheel } from '@/components/ui/works-wheel';
+import zinnovatioImg from '../assets/zinnovatio.jpeg';
 
 const filters = ['All', 'Hackathon', 'Workshop', 'Seminar', 'Competition'];
 
@@ -15,7 +16,7 @@ const UPCOMING_EVENTS = [
     location: 'Chandigarh University, Block 4',
     category: 'Hackathon',
     badge: 'Flagship',
-    image: 'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=800&auto=format&fit=crop&q=80',
+    image: zinnovatioImg,
     gradient: 'from-blue-500/30 to-red-600/30',
     href: '#zinnovatio-register',
   },
@@ -29,7 +30,7 @@ const UPCOMING_EVENTS = [
     location: 'CU Tech Auditorium',
     category: 'Competition',
     badge: 'Popular',
-    image: 'https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=800&auto=format&fit=crop&q=80',
+    image: 'https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=1200&q=80',
     gradient: 'from-blue-600/30 to-cyan-500/30',
     href: '#code-relay-register',
   },
@@ -43,7 +44,7 @@ const UPCOMING_EVENTS = [
     location: 'Virtual + CS Lab 2',
     category: 'Workshop',
     badge: 'Hands-on',
-    image: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&auto=format&fit=crop&q=80',
+    image: 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1200&q=80',
     gradient: 'from-emerald-500/30 to-teal-600/30',
     href: '#nextjs-workshop',
   },
@@ -57,7 +58,7 @@ const UPCOMING_EVENTS = [
     location: 'Main Conference Hall',
     category: 'Seminar',
     badge: 'Keynote',
-    image: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=800&auto=format&fit=crop&q=80',
+    image: 'https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=1200&q=80',
     gradient: 'from-purple-600/30 to-pink-500/30',
     href: '#ai-quantum-seminar',
   },
@@ -71,7 +72,7 @@ const UPCOMING_EVENTS = [
     location: 'Robotics Innovation Hub',
     category: 'Workshop',
     badge: 'Live Demo',
-    image: 'https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=800&auto=format&fit=crop&q=80',
+    image: 'https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&w=1200&q=80',
     gradient: 'from-blue-400/30 to-blue-600/30',
     href: '#robotics-expo',
   },
@@ -85,7 +86,7 @@ const UPCOMING_EVENTS = [
     location: 'Cybersecurity Lab',
     category: 'Competition',
     badge: 'Cash Prize',
-    image: 'https://images.unsplash.com/photo-1563986768609-322da13575f3?w=800&auto=format&fit=crop&q=80',
+    image: 'https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1200&q=80',
     gradient: 'from-red-600/30 to-rose-700/30',
     href: '#cybershield-ctf',
   },
@@ -107,7 +108,7 @@ function EventGridCard({ event, index }) {
         <img
           src={event.image}
           alt={event.title}
-          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+          className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-dark-900 via-dark-900/40 to-transparent" />
 
@@ -155,15 +156,7 @@ function EventGridCard({ event, index }) {
             </div>
           </div>
 
-          <div className="flex items-center justify-between pt-4 border-t border-white/10">
-            <span className="text-xs font-semibold uppercase tracking-wider text-blue-400">Register Now</span>
-            <div className="w-8 h-8 rounded-full bg-blue-500/10 group-hover:bg-blue-500 text-blue-400 group-hover:text-white flex items-center justify-center transition-all">
-              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M5 12h14" />
-                <path d="m12 5 7 7-7 7" />
-              </svg>
-            </div>
-          </div>
+          <div className="pt-4 border-t border-white/10" />
         </div>
       </div>
     </motion.div>
@@ -193,9 +186,9 @@ export default function UpcomingEvents() {
               initial={{ opacity: 0, y: 10 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5 }}
-              className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xs font-semibold tracking-wider uppercase mb-4"
+              className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-neutral-200/10 border border-neutral-300/20 text-[#17639d] text-xs font-semibold tracking-wider uppercase mb-4 shadow-sm"
             >
-              <span className="w-2 h-2 rounded-full bg-blue-500 animate-ping" />
+              <span className="w-2 h-2 rounded-full bg-[#17639d] animate-ping" />
               Calendar of Events
             </motion.div>
             <motion.h2

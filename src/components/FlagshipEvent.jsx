@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
 import gsap from 'gsap';
+import zinnovatioImg from '../assets/zinnovatio.jpeg';
 
 function useCountdown(targetDate) {
   const [timeLeft, setTimeLeft] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
@@ -85,22 +86,29 @@ export default function FlagshipEvent() {
 
         {/* Card Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-6">
-          {/* Left Card - Event Details */}
+          {/* Left Card - Event Details with full card background photo */}
           <motion.div
             initial={{ opacity: 0, y: 40, scale: 0.97 }}
             whileInView={{ opacity: 1, y: 0, scale: 1 }}
             viewport={{ once: true, margin: '-60px' }}
             transition={{ duration: 0.7, delay: 0.2 }}
-            className="relative overflow-hidden rounded-2xl bg-dark-800 border border-white/6 p-8 lg:p-10"
+            className="group relative overflow-hidden rounded-2xl border border-white/10 p-8 lg:p-10 flex flex-col justify-between"
           >
-            <div className="absolute -right-8 -top-8 h-36 w-36 rounded-full bg-blue-500/10 blur-3xl" />
-            <div className="absolute bottom-0 left-0 h-28 w-28 rounded-full bg-violet-500/10 blur-3xl" />
+            {/* Full Card Background Photo & Dark Gradient Overlay */}
+            <div className="absolute inset-0 z-0">
+              <img
+                src={zinnovatioImg}
+                alt="Zinnovatio 4.0 Event Poster"
+                className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/70 to-transparent" />
+            </div>
 
             <div className="relative z-10">
               <div className="mb-6 flex items-center justify-between gap-3">
                 <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-blue-500/10 border border-blue-500/20">
                   <span className="w-1.5 h-1.5 rounded-full bg-green-400" />
-                  <span className="text-xs font-semibold text-blue-500">Flagship • Hackathon</span>
+                 
                 </div>
                 <div className="rounded-full border border-white/10 bg-white/5 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-[0.18em] text-white/60">
                   LIVE
@@ -169,7 +177,7 @@ export default function FlagshipEvent() {
               <div className="flex flex-wrap gap-3">
                 <a
                   href="#"
-                  className="inline-flex items-center gap-2 px-6 py-3 text-sm font-semibold text-white bg-white hover:bg-white/90 rounded-lg transition-all duration-200 hover:-translate-y-0.5"
+                  className="inline-flex items-center gap-2 px-6 py-3 text-sm font-bold text-[#17639d] bg-neutral-200/90 hover:bg-neutral-300 rounded-full transition-all duration-200 hover:-translate-y-0.5 shadow-lg"
                 >
                   Register now
                   <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
